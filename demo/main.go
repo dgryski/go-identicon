@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/dgryski/identicon"
+	"github.com/dgryski/go-identicon"
 	"log"
 	"os"
 )
