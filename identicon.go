@@ -37,7 +37,7 @@ import (
 	"image/png"
 )
 
-// Allows rendering of data as a PNG identicon
+// IdenticonRenderer allows rendering of data as a PNG identicon
 type IdenticonRenderer interface {
 	// Render generates a PNG from data
 	Render(data []byte) []byte
