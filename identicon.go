@@ -95,16 +95,25 @@ func (icon *identicon) Render(data []byte) []byte {
 	sqx := 0
 	sqy := 0
 
+	pixels := make([]byte, icon.sqSize)
+	for i := 0; i < icon.sqSize; i++ {
+		pixels[i] = 1
+	}
+
 	for i := 0; i < icon.rows*(icon.cols+1)/2; i++ {
 
 		if h&1 == 1 {
-			for x := 0; x < icon.sqSize; x++ {
-				for y := 0; y < icon.sqSize; y++ {
-					img.SetColorIndex(xborder+sqx*icon.sqSize+x, yborder+sqy*icon.sqSize+y, 1)
-					img.SetColorIndex(xborder+(icon.cols-1-sqx)*icon.sqSize+x, yborder+sqy*icon.sqSize+y, 1)
-				}
-			}
 
+			for i := 0; i < icon.sqSize; i++ {
+				x := xborder + sqx*icon.sqSize
+				y := yborder + sqy*icon.sqSize + i
+				offs := img.PixOffset(x, y)
+				copy(img.Pix[offs:], pixels)
+
+				x = xborder + (icon.cols-1-sqx)*icon.sqSize
+				offs = img.PixOffset(x, y)
+				copy(img.Pix[offs:], pixels)
+			}
 		}
 
 		h >>= 1
