@@ -53,6 +53,8 @@ type identicon struct {
 
 const xborder = 35
 const yborder = 35
+const maxX = 420
+const maxY = 420
 
 // New5x5 creates a new 5-by-5 identicon renderer using 'key' as the hash salt
 func New5x5(key []byte) IdenticonRenderer {
@@ -88,7 +90,7 @@ func (icon *identicon) Render(data []byte) []byte {
 	}
 	h >>= 24
 
-	img := image.NewPaletted(image.Rect(0, 0, 420, 420), color.Palette{color.NRGBA{0xf0, 0xf0, 0xf0, 0xff}, nrgba})
+	img := image.NewPaletted(image.Rect(0, 0, maxX, maxY), color.Palette{color.NRGBA{0xf0, 0xf0, 0xf0, 0xff}, nrgba})
 
 	sqx := 0
 	sqy := 0
