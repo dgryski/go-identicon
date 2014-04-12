@@ -25,7 +25,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 // Package identicon creates simple visual hashes of data as PNGs.
-// For more information, see https://en.wikipedia.org/wiki/Identicon and https://github.com/blog/1586-identicons
+/*
+For more information, see https://en.wikipedia.org/wiki/Identicon and https://github.com/blog/1586-identicons
+*/
 package identicon
 
 import (
