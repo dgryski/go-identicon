@@ -39,8 +39,8 @@ import (
 	"image/png"
 )
 
-// IdenticonRenderer allows rendering of data as a PNG identicon
-type IdenticonRenderer interface {
+// Renderer allows rendering of data as a PNG identicon
+type Renderer interface {
 	// Render generates a PNG from data
 	Render(data []byte) []byte
 }
@@ -59,7 +59,7 @@ const maxX = 420
 const maxY = 420
 
 // New5x5 creates a new 5-by-5 identicon renderer using 'key' as the hash salt
-func New5x5(key []byte) IdenticonRenderer {
+func New5x5(key []byte) Renderer {
 	return &identicon{
 		sqSize: 70,
 		rows:   5,
@@ -69,7 +69,7 @@ func New5x5(key []byte) IdenticonRenderer {
 }
 
 // New7x7 creates a new 7-by-7 identicon renderer using 'key' as the hash salt
-func New7x7(key []byte) IdenticonRenderer {
+func New7x7(key []byte) Renderer {
 	return &identicon{
 		sqSize: 50,
 		rows:   7,
