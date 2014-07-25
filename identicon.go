@@ -32,11 +32,12 @@ package identicon
 
 import (
 	"bytes"
-	"github.com/dchest/siphash"
 	"hash"
 	"image"
 	"image/color"
 	"image/png"
+
+	"github.com/dchest/siphash"
 )
 
 // Renderer allows rendering of data as a PNG identicon
